@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+      ;*, *::before, *::after {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        font-style: sans-serif;
+      }
+
+      header {
+        width: 100%;
+        background-color: #413ee29a;
+        height: 80px;
+        left: 0;
+        top: 0;
+        color: white;
+        position: fixed;
+        
+      }
+
+      
+
+      .header-first h1 {
+        margin-left: 10%;
+        margin-top: 30px;
+        font-size: 30px;
+        line-height: 25px;
+        color: #fff;
+      }
+
+      #sub {
+        font-size: medium;
+        margin-left: 20px;
+      }
+
+      #detail {
+        margin-left: 90px; 
+        font-weight: bolder; 
+        top: 60px; 
+        color: #fff;
+      }
+      
+      h2 {
+        color: #000;
+        padding: 1rem 2rem;
+        border-left: 5px solid rgb(31, 71, 233);
+        background: #f4f4f4;
+        font-size: x-large;
+        font-weight: bold;
+        padding: 10px;
+        padding-left: 25px;
+        margin-left: 5px;
+      }
+
+      .header-first p {
+        font-size: medium;
+        position: absolute;
+        color: black;
+        font-weight: bold;
+        margin-top: 0px;
+        margin-left: 20px;
+      }
+
+      .main {
+        padding-top: 100px;
+      }
+
+      table{
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      table th,table td{
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      table tr:nth-child(odd){
+        background-color: #eee;
+      }
+
+      a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+      }
+
+      a:hover {
+        color: rgb(0, 17, 255);
+      }
+
+      span {
+        font-size: smaller;
+        font-weight: bold;
+        
+      }
+
+      input {
+        width: 60px;
+      }
+
+      h2 span {
+        margin-left: 30px;
+        font-size: medium;
+      }
+
+      .article {
+        margin: 20px;
+      }
+
+      .image {
+        height: 300px;
+        display: inline-block;
+        border: 5px solid #6972b7af;
+      }
+
+      .sentence {
+        display: inline-block;
+        top: -900;
+        position: absolute;
+        line-height: 20px;
+        margin-left: 5px;
+      }
+
+      p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: medium;
+        font-weight: bolder;
+      }
+      /*============================
+      タブレット端末 1001px未満
+      ============================*/
+
+      @media screen and (max-width: 1000px) {
+
+        #sub {
+          font-size: small; 
+          margin-left: 10px;
+        }
+
+        #detail {
+          font-size: small;
+        }
+
+        p {
+          font-size: smaller;
+          line-height: 15px;
+          font-weight: bold;
+        }
+
+        .sentence {
+          margin-left: 0px;
+          position: static;
+        }
+
+        #drstone {
+          width: 400px; 
+          height: 300px; 
+          object-fit: cover; 
+        }
+      }
+
+      /*============================
+      スマホ端末 441px未満
+      ============================*/
+
+      @media screen and (max-width: 440px) {
+        .header-first h1 {
+          font-size: large;
+          margin-left: 10px;
+          margin-top: 15px;
+        }
+
+        #sub {
+          display: block;
+        }
+
+        #detail {
+          margin-left: 20px;
+        }
+
+        .image {
+          display: block;
+        }
+
+        .sentence {
+          display: block;
+        }
+
+        #drstone {
+          width: 300px; 
+          height: 200px; 
+          object-fit: cover; 
+        }
+
+        #AOT {
+          width: 300px;
+          height: 200px;
+          object-fit: cover;
+        }
+      }
+
+    </style>
+</head>
+<body>
+  <header>
+    <div class="header-first">
+        <h1>アニメ内通貨換金機(独自調べ)<span id="sub">※1ドル=110円として計算しています</span></h1>
+        <p id="detail">通貨名をクリックすると詳細に飛ぶよ</p>
+    </div>
+  </header>
+  <div class="main">
+    
+    <table>
+      <tr>
+        <th>アニメの名前</th>
+        <th>入力欄</th>
+        <th>円</th>
+        <th>ドル</th>
+      </tr>
+      <tr>
+        <td><a href="#i1">ベル</a> <span>(ワンピース内通貨)</span></td>
+        <td><input value="0" id="bell" type="number"><!--<span>ベル</span>--><button href="" value="確定" style="height: 25px;" onclick="bellClick()">確定</button></td>
+        <td id="BellYen">0<span>円</span></td>
+        <td id="BellDollar">0<span>ドル</span></td>
+      </tr>
+      <tr>
+        <td><a href="#i2"> 両</a><span>(NARUTO内通貨)</span></td>
+        <td><input value="0" id="ryo" type="number"><!--<span>両</span>--><button href="" value="確定" style="height: 25px;" onclick="ryoClick()">確定</button></td>
+        <td id="RyoYen">0<span>円</span></td>
+        <td id="RyoDollar">0<span>ドル</span></td>
+      </tr>
+      <tr>
+        <td><a href="#i3"> ゼニー</a><span>(ドラゴンボール内通貨)</span></td>
+        <td><input value="0" id="zeny" type="number"><!--<span>ゼニー</span>--><button href="" value="確定" style="height: 25px;" onclick="zenyClick()">確定</button></td>
+        <td id="ZenyYen"><span>約</span>0<span>円</span></td>
+        <td id="ZenyDollar"><span>約</span> 0<span>ドル</span></td>
+      </tr>
+      <tr>
+        <td><a href="#i4"> ジェニー</a><span>(ハンターハンター内通貨)</span></td>
+        <td><input value="0" id="jeny" type="number"><!--<span>J</span>--><button href="" value="確定" style="height: 25px;" onclick="jenyClick()">確定</button></td>
+        <td id="JenyYen"><span>約</span>0<span>円</span></td>
+        <td id="JenyDollar"><span>約</span> 0<span>ドル</span></td>
+      </tr>
+      <tr>
+        <td><a href="#i5"> 半両銭</a><span>(キングダム内通貨)</span></td>
+        <td><input value="0" id="hanryosen" type="number"><!--<span>枚</span>--><button href="" value="確定" style="height: 25px;" onclick="hanryosenClick()">確定</button></td>
+        <td id="HanryosenYen"><span>約</span>0<span>円</span></td>
+        <td id="HanryosenDollar"><span>約</span> 0<span>ドル</span></td>
+      </tr>
+      <tr>
+        <td><a href="#i6"> ドラゴ</a><span>(Dr.STONE内通貨)</span></td>
+        <td><input value="0" id="drago" type="number"><!--<span>ドラゴ</span>--><button href="" value="確定" style="height: 25px;" onclick="dragoClick()">確定</button></td>
+        <td id="DragoYen"><span>約</span>0<span>円</span></td>
+        <td id="DragoDollar"><span>約</span> 0<span>ドル</span></td>
+      </tr>
+      <tr>
+        <td><a href="#i7"> 銅貨</a><span>(進撃の巨人内通貨)</span></td>
+        <td><input value="0" id="douka" type="number"><!--<span>枚</span>--><button href="" value="確定" style="height: 25px;" onclick="doukaClick()">確定</button></td>
+        <td id="DoukaYen"><span>約</span>0<span>円</span></td>
+        <td id="DoukaDollar"><span>約</span> 0<span>ドル</span></td>
+      </tr>
+      <!--
+      <tr>
+        <td><a href="#i8"> ペリカ</a><span>(カイジ内通貨)</span></td>
+        <td><input value="0" id="pelika" type="number"><button href="" value="確定" style="height: 25px;" onclick="pelikaClick()">確定</button></td>
+        <td id="PelikaYen">0<span>円</span></td>
+        <td id="PelikaDollar">0<span>ドル</span></td>
+      </tr>
+      -->
+    </table>
+    <div id="i1">
+      <h2>ベル <span>(ワンピース内通貨)</span></h2>
+      <div class="article">
+        <img class="image" src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/sansantarou831/20190801/20190801100757.png" alt="ワンピース手配書">
+        <div class="sentence">
+          <p>尾田先生は昔SBSにて1円＝1ベリーと明かしたそうです。</p>
+          <p>読者に分かりやすくするためにこの設定にしたのでしょう、。さすが尾田先生</p>
+          <p>ちなみに史上最高額の懸賞金は海賊王ゴール・D・ロジャーで、</p>
+          <p>金額は55億6480万ベリーで、現実世界でこの値段のものはフェラーリ250 GTO</p>
+          <p>2014年に開催されたオークションで個人収集家の方がこの価格で落札したそうです</p>
+          <p>自分はだいぶ前から思っていたのですが、仮に四皇の首や海賊王の首をすぐに差し出しても</p>
+          <p>世界政府はすぐに懸賞金を払ってくれるのでしょうか、、。</p>
+          <p>世界政府のお財布はいったいどうなっているのでしょう、</p>
+          <p>過去に海軍以外が高額な賞金首を捕まえたケースはやボニーやエースなどがありますが、</p>
+          <p>その場合も黒ひげにしっかり懸賞金を払っていたのでしょうか、、</p>
+          <p>もしルフィや最悪の世代が金で困ったらそこら辺の賞金首を捕まえれば大丈夫そうですよね</p>
+          <p>新世界には億越えの海賊なんてざらにいそうですし、金が転がりすぎでは、？</p>
+        </div>
+        <p style="background-color: rgba(0, 0, 0, 0.117); font-size: smaller; display: inline-block;">引用:尾田栄一郎 ワンピース 第879話</p>
+      </div>
+    </div>
+    <div id="i2">
+      <h2>両<span>(NARUTO内通貨)</span></h2>
+      <div class="article">
+        <img class="image" src="http://chomanga.org/wp-content/uploads/2017/12/5121eb93f324dc2314d0466394e6b70f.png" alt="地陸懸賞金">
+        <div class="sentence">
+          <p>単行本17巻にて一両＝十円が目安と明かされたそうです</p>
+          <p>ナルトは幼少期の下忍のころからガマ財布に大量の小銭を入れていることから、</p>
+          <p>あの世界の小銭は日本のようにいくつか種類があるとうかがえます。</p>
+          <p>アニオリでは金遁というお札をばらまき周囲にいる護衛になんでもやらせるという</p>
+          <p>術？のようなものが登場しているのでお札があることは一応間違いないようです。</p>
+          <p>ちなみに他にもアスマが3500両、人柱力のウタカタが5000両の賞金首だそうです。</p>
+          <p>暁も闇の世界で依頼を受けていましたし、闇の世界はかなり金が動いていそうですね</p>
+        </div>
+        <p style="background-color: rgba(0, 0, 0, 0.117); font-size: smaller; display: inline-block;">引用:岸本斉史 NARUTO疾風伝 第314話</p>
+      </div>
+    </div>
+    <div id="i3">
+      <h2>ゼニー<span>(ドラゴンボール内通貨)</span></h2>
+      <div class="article">
+        <img class="image" src="https://pbs.twimg.com/media/DQlJ1HVUIAAgZ-2?format=jpg&name=360x360" alt="地陸懸賞金">
+        <div class="sentence">
+          <p>この画像の賞金はうえの計算機で計算したところ、75万円</p>
+          <p>大会の賞金にしては少ない、、？</p>
+          <p>この後悟空結構飯食べてましたよね笑</p>
+        </div>
+        <p style="background-color: rgba(0, 0, 0, 0.117); font-size: smaller; display: inline-block;">引用:鳥山明 ドラゴンボール超</p>
+      </div>
+    </div>
+    <div id="i4">
+      <h2>ジェニー<span>(ハンターハンター内通貨)</span></h2>
+      <div class="article">
+        <img class="image" src="https://stat.ameba.jp/user_images/20190428/19/ziro-irisa/d1/4c/j/o0640103614399255012.jpg" style="width: 300px; height: 250px; object-fit: cover;" alt="地陸懸賞金">
+        <div class="sentence">
+          <p>作者の富樫義博さん曰く、１ジェニーは約0.9円だそうです。</p>
+          <p>この通貨はオークションなどで知っている方は多そうですね</p>
+          <p>ちなみにグリードアイランドの定価は5,800,000,000Jで、日本円で52億2000万円、、！？</p>
+          <p>まさかの海賊王レベルです笑</p>
+          <p>他にも天空闘技場のファイトマネーは一階で152J、日本円で137円笑</p>
+          <p>あの世界のハンターはかなり多く金を貰ってるそうですが、幻影旅団に入ればもっと</p>
+          <p>お金が手に入るのでしょうか、、、</p>
+        </div>
+        <p style="background-color: rgba(0, 0, 0, 0.117); font-size: smaller; display: inline-block;">引用:冨樫義博 HUNTER×HUNTER 13巻p.169</p>
+      </div>
+    </div>
+    <div id="i5">
+      <h2>半両銭<span>(キングダム内通貨)</span></h2>
+      <div class="article">
+        <img class="image" src="https://stat.ameba.jp/user_images/20200523/14/becreates/69/22/j/o0650102414762975535.jpg" style="width: 300px; height: 300px; object-fit: cover;" alt="キングダム貨幣制度">
+        <div class="sentence">
+          <p><a target="_blank" style="text-decoration: solid underline rgba(30, 143, 255, 0.522) 2px;" href="https://www.youtube.com/watch?v=6RV2pk4_AX8&t=184s">こちら</a>の動画の方が計算してくれていました。</p>
+          <p>算出方法は一両=約16gで半両銭は約8gなので金1gを約6500円として計算し、8(g)×6500(円)で52000円！</p>
+          <p>この動画、とても面白いのでキングダムが好きな方はぜひ見てみてください！</p>
+          <p>やはりキングダムはアクション要素や物語の展開も面白いですが、普通に勉強になってしまうのが大好きです笑</p>
+        </div>
+        <p style="background-color: rgba(0, 0, 0, 0.117); font-size: smaller; display: inline-block;">引用:原泰久 キングダム 39巻p.155</p>
+      </div>
+    </div>
+    <div id="i6">
+      <h2>ドラゴ<span>(Dr.STONE内通貨)</span></h2>
+      <div class="article">
+        <img class="image" id="drstone" src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syerox/20200429/20200429023939.png" alt="キングダム貨幣制度">
+        <div class="sentence">
+          <p>龍水財閥の発行した通貨で、彼は3000年前の七海財閥の大御曹司です</p>
+          <p>様々な才能のある未成年たちがストーンワールドで活躍する展開の物語で、</p>
+          <p>自分は始まった当初からお金持ちやお坊ちゃまはあまり活躍できなさそうな話だなと思っていましたが</p>
+          <p>もしかしたら自分は龍水が一番好きなキャラかもしれません笑</p>
+          <p>ちなみに算出方法は、綿あめとラーメンと漫画が共通で100ドラゴなので1ドラゴ大体5円としました。</p>
+          <p>なのでこの画像のお札は日本円で500円ですね</p>
+          <p>やはりキングダム同様、貨幣制度はある程度文明が発達したら避けては通れぬ道なのでしょうか</p>
+        </div>
+        <p style="background-color: rgba(0, 0, 0, 0.117); font-size: smaller; display: inline-block;">引用:稲垣理一郎 ドクターストーン 90巻86話</p>
+      </div>
+    </div>
+    <div id="i7">
+      <h2>銅貨<span>(進撃の巨人内通貨)</span></h2>
+      <div class="article">
+        <img class="image" id="AOT" src="https://manga-tei.com/wp-content/uploads/2021/01/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88-2021-01-08-19.35.34.png" alt="進撃の巨人パン">
+        <div class="sentence">
+          <p>算出方法は銅貨＝4人家族の一日の小麦粉であり、小麦(4kg)は約1160円として銅貨1枚は1160円としました。</p>
+          <p>ちなみに調査兵団は現在の自衛隊と考え、自衛隊の平均年収は約560万円。</p>
+          <p>銅貨に換算すると、銅貨4828枚です！</p>
+          <p>そして、憲兵団を警察官と考えると現在の警察官の平均年収は約530万円なので、銅貨に換算すると約4569枚。</p>
+          <p>命の危険をおかさずに安全な場所で働くか、それとも人類の未来のために心臓を捧げて壁外に出るか、、。</p>
+        </div>
+        <p style="background-color: rgba(0, 0, 0, 0.117); font-size: smaller; display: inline-block;">引用:諫山創 進撃の巨人 27巻70話</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function bellClick() {
+      var bell = document.getElementById('bell').value;
+      console.log(bell);
+      document.getElementById('BellYen').innerText = bell+"円"
+      document.getElementById('BellDollar').innerText = bell*110 + "ドル"
+    };
+
+    function ryoClick() {
+      var ryo = document.getElementById('ryo').value;
+      console.log(ryo);
+      document.getElementById('RyoYen').innerText = ryo*10 + "円"
+      document.getElementById('RyoDollar').innerText = ryo*10*110 + "ドル"
+    };
+
+    function zenyClick() {
+      var zeny = document.getElementById('zeny').value;
+      console.log(zeny);
+      document.getElementById('ZenyYen').innerText = "約" + zeny*0.9 + "円"
+      document.getElementById('ZenyDollar').innerText = "約" + zeny*0.9*110 + "ドル"
+    };
+
+    function jenyClick() {
+      var jeny = document.getElementById('jeny').value;
+      console.log(jeny);
+      document.getElementById('JenyYen').innerText = "約" + jeny*0.9 + "円"
+      document.getElementById('JenyDollar').innerText = "約" + jeny*0.9*110 + "ドル"
+    };
+
+    function hanryosenClick() {
+      var hanryosen = document.getElementById('hanryosen').value;
+      console.log(hanryosen);
+      document.getElementById('HanryosenYen').innerText = "約" + hanryosen*5200 + "円"
+      document.getElementById('HanryosenDollar').innerText = "約" + hanryosen*5200*110 + "ドル"
+    };
+
+    function dragoClick() {
+      var drago = document.getElementById('drago').value;
+      console.log(drago);
+      document.getElementById('DragoYen').innerText = "約" + drago*5 + "円"
+      document.getElementById('DragoDollar').innerText = "約" + drago*5*110 + "ドル"
+    };
+
+    function doukaClick() {
+      var douka = document.getElementById('douka').value;
+      console.log(douka);
+      document.getElementById('DoukaYen').innerText = "約" + douka*1160 + "円"
+      document.getElementById('DoukaDollar').innerText = "約" + douka*5*1160 + "ドル"
+    };
+
+    function pelikaClick() {
+      var pelika = document.getElementById('pelika').value;
+      console.log(pelika);
+      document.getElementById('PelikaYen').innerText = pelika/10 + "円"
+      document.getElementById('PelikaDollar').innerText = pelika/10*1160 + "ドル"
+    };
+  </script>
+</body>
+</html>
